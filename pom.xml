@@ -11,7 +11,8 @@
 
   <!--All the submodules / microservices will be added here-->
   <modules>
-    <module>customer</module>
+      <module>customer</module>
+      <module>fraud</module>
   </modules>
 
   <name>neoServices</name>

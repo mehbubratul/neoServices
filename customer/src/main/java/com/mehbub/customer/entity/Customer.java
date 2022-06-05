@@ -1,4 +1,4 @@
-package com.mehbub.customer.model;
+package com.mehbub.customer.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

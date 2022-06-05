@@ -2,7 +2,7 @@ package com.mehbub.customer.service;
 
 import com.mehbub.customer.repository.CustomerRepository;
 import com.mehbub.customer.request.CustomerRegistrationRequest;
-import com.mehbub.customer.model.Customer;
+import com.mehbub.customer.entity.Customer;
 import org.springframework.stereotype.Service;
 
 @Service
