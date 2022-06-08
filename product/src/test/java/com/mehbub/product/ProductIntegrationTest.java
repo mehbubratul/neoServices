@@ -45,15 +45,14 @@ public class ProductIntegrationTest {
     }
 
     @Test
-    public void whenRequestingFirstPageOfSizeTwo_ThenReturnFirstPage() {
-        Pageable pageRequest = PageRequest.of(0, 1);
+    public void whenRequestingFirstPageOfSizeTen_ThenReturnFirstPage() {
+        Pageable pageRequest = PageRequest.of(0, 10);
 
         Page<Product> result = productRepository.findAll(pageRequest);
 
-        assertThat(result.getContent(), hasSize(1));
-        assertTrue(result.stream()
-                .map(Product::getId)
-                .allMatch(id -> Arrays.asList(1001, 1002)
-                        .contains(id)));
+        long count = result.stream().count();
+
+        assertTrue(count == 5);
+
     }
 }

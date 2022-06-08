@@ -24,8 +24,15 @@ public class Product {
             generator = "product_id_sequence"
     )
     private Integer id;
+
+    @Basic(optional = false)
+    @Column(nullable = false)
     private String productName;
+
     private String productAliasName;
+
+    @Basic(optional = false)
+    @Column(nullable = false)
     private Integer productStatus; // 0=Inactive ; 1=Active ; 2=Temporarily_off ; 3=Deprecated
 
 }

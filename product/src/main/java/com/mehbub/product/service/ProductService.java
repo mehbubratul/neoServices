@@ -1,6 +1,7 @@
 package com.mehbub.product.service;
 
 import com.mehbub.product.entity.Product;
+import com.mehbub.product.repository.PriceRepository;
 import com.mehbub.product.repository.ProductRepository;
 import com.mehbub.product.request.ProductRegistrationRequest;
 import org.springframework.stereotype.Service;
@@ -24,9 +25,11 @@ public class ProductService {
         // todo: check if product is valid
         // todo: check if product is not taken
 
-        // save customer
+        // save product
         productRepository.saveAndFlush(product);
 
+        Integer productId = product.getId();
+        // save price for this product
         //todo: send notification
     }
 }
