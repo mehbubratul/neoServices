@@ -32,3 +32,7 @@
 
   ### Health Check : ./health
 
+ ## Distributed Tracing:
+ 
+ Spring Cloud Sleuth provides Spring Boot auto-configuration for distributed tracing.
+ 
