@@ -1,4 +1,4 @@
-package com.mehbub.product.entity;
+package com.mehbub.price.entiry;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ProductPrice {
+public class Price {
     @Id
     @SequenceGenerator(
             name = "product_price_id_sequence",

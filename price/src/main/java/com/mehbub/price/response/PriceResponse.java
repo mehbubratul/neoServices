@@ -1,14 +1,18 @@
-package com.mehbub.product.request;
+package com.mehbub.price.response;
+
+import lombok.Builder;
 
 import java.util.Date;
 
-public record PriceSetRequest(
+@Builder
+public record PriceResponse(
+        Integer id,
         Integer ProductId,
         Double Rate,
         Boolean isDiscountAllowed,
         Boolean isDiscountInPercentage,
         Double MaxDiscount,
         Integer ProductStatus,
-        Date ProductPriceEffectiveDate) {
-
+        Date ProductPriceEffectiveDate
+) {
 }

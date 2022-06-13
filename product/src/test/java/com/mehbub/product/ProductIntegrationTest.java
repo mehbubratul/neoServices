@@ -3,11 +3,15 @@ package com.mehbub.product;
 import com.mehbub.product.entity.Product;
 import com.mehbub.product.repository.ProductRepository;
 
+import com.mehbub.product.request.ProductRegistrationRequest;
+import com.mehbub.product.response.ProductResponse;
+import com.mehbub.product.service.ProductService;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,25 +38,30 @@ public class ProductIntegrationTest {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ProductService productService;
+
     @Before
     @Transactional("productTransactionManager")
     public void setUp() {
-        productRepository.save(Product.builder().productName("ABC").productAliasName("abc").productStatus(1).build());
-        productRepository.save(Product.builder().productName("DEF").productAliasName("def").productStatus(1).build());
-        productRepository.save(Product.builder().productName("IJK").productAliasName("ijk").productStatus(1).build());
-        productRepository.save(Product.builder().productName("MNO").productAliasName("mno").productStatus(1).build());
-        productRepository.save(Product.builder().productName("XYX").productAliasName("xyz").productStatus(1).build());
+        productService.registerProduct(ProductRegistrationRequest.builder().ProductName("60 AMS Tola").ProductAliasName("60 Chula").ProductStatus(1).build());
+        productService.registerProduct(ProductRegistrationRequest.builder().ProductName("100 AMS Tola").ProductAliasName("100 Chula").ProductStatus(1).build());
+        productService.registerProduct(ProductRegistrationRequest.builder().ProductName("30 AMS Changeover").ProductAliasName("30 Changeover").ProductStatus(1).build());
+        productService.registerProduct(ProductRegistrationRequest.builder().ProductName("60 AMS Changeover").ProductAliasName("60 Changeover").ProductStatus(1).build());
+        productService.registerProduct(ProductRegistrationRequest.builder().ProductName("100 AMS Changeover").ProductAliasName("100 Changeover").ProductStatus(1).build());
     }
 
     @Test
-    public void whenRequestingFirstPageOfSizeTen_ThenReturnFirstPage() {
-        Pageable pageRequest = PageRequest.of(0, 10);
+    public void productListCountIsEqualToProductResponseListCount() {
 
-        Page<Product> result = productRepository.findAll(pageRequest);
+        List<Product> productList = productRepository.findAll();
+        long productListCount = productList.stream().count();
 
-        long count = result.stream().count();
+        List<ProductResponse> productResponseList = productService.getProducts();
+        long productResponseListCount = productResponseList.stream().count();
 
-        assertTrue(count == 5);
+
+        assertTrue(productListCount == productResponseListCount);
 
     }
 }

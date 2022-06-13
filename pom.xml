@@ -15,6 +15,7 @@
     <module>fraud</module>
     <module>eureka-server</module>
       <module>product</module>
+      <module>price</module>
   </modules>
 
   <name>neoServices</name>

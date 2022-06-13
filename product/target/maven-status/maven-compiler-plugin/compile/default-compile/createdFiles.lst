@@ -1,0 +1,7 @@
+com\mehbub\product\entity\Product.class
+com\mehbub\product\repository\ProductRepository.class
+com\mehbub\product\entity\Product$ProductBuilder.class
+com\mehbub\product\controller\ProductController.class
+com\mehbub\product\ProductApplication.class
+com\mehbub\product\service\ProductService.class
+com\mehbub\product\request\ProductRegistrationRequest.class
